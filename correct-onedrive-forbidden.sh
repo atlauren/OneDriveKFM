@@ -8,6 +8,7 @@
 # https://github.com/zsh-users/zsh/blob/master/Functions/Misc/zmv
 # https://stackoverflow.com/a/41508466/20266908
 
+
 theRoot=$HOME/Desktop/
 theName=OneDrive-Renamed
 theOutput=$theName.txt
@@ -59,5 +60,23 @@ for q in / . ; do
 done
 
 awk -f ./zmv2csv.awk $theRoot$theOutput > $theRoot$theCSV
+
+# File Dates predating 1980-01-01
+# https://en.wikipedia.org/wiki/File_Allocation_Table
+# https://superuser.com/a/797493
+
+theFiles=("${(@f)$(find $HOME/(Desktop|Documents) ! -newermt "1980-01-01")}") 
+# https://unix.stackexchange.com/a/29748/599230
+
+for f in $theFiles
+do
+	echo "$f" >> $HOME/Desktop/OneDrive-FileDates.txt
+ 	theTime=$(date -r "$f" +%H%M.%S)
+ 	echo $theTime
+ 	# stat "$f"
+ 	touch -t 19800101$theTime "$f"
+ 	# stat "$f" 	
+done
+
 
 # end
