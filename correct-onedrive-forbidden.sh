@@ -1,7 +1,9 @@
 #!/bin/zsh
 # https://github.com/atlauren/OneDriveKFM/
 # atlauren@uci.edu
-# 
+
+
+# OneDrive issues with filenames
 # https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa
 # https://zsh.sourceforge.io/Doc/Release/zsh_toc.html
 # https://zsh.sourceforge.io/Doc/Release/Expansion.html
