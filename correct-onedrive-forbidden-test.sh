@@ -21,6 +21,7 @@ autoload zmv
 zmv $theRoot'(OneDrive-Renamed).(txt|csv)(#qN)' $theRoot'$1_$(stat -f %Sc -t %F_%H-%M-%S $f).$2'
 
 #rm $theRoot$theOutput
+echo $theRoot$theOutput
 touch $theRoot$theOutput
 
 for q in / . ; do
@@ -30,33 +31,33 @@ for q in / . ; do
 	for i in Desktop/ Documents/ ; do
 	
 		# leading spaces -- substitute with "_"
-		zmv $theHome/$i'(**/) (*)(#q'$q')(#qN)' $theHome/$i'$1_$2' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/) (*)(#q'$q')(#qN)' $theHome/$i'$1_$2' >> $theRoot$theOutput
 		
 		# trailing spaces -- substitute with "_"
-		zmv $theHome/$i'(**/)(*) (#q'$q')(#qN)' $theHome/$i'$1$2_' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/)(*) (#q'$q')(#qN)' $theHome/$i'$1$2_' >> $theRoot$theOutput
 		
 		# illegal characters -- substitute with "_"
 		# " * : < > ? / \ | %
 		# https://unix.stackexchange.com/a/767152/599230
-		zmv $theHome/$i'(**/)(*)(#q'$q')(#qN)' $theHome/$i'$1${(S)2//([\\:\|><\?\*\%"\""])/_}' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/)(*)(#q'$q')(#qN)' $theHome/$i'$1${(S)2//([\\:\|><\?\*\%"\""])/_}' >> $theRoot$theOutput
 		
 		# CON PRN AUX NUL -- prepend with "_"
-		zmv $theHome/$i'(**/)(AUX|CON|NUL|PRN)(#q'$q')(#qN)' $theHome/$i'$1_$2' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/)(AUX|CON|NUL|PRN)(#q'$q')(#qN)' $theHome/$i'$1_$2' >> $theRoot$theOutput
 		
 		# COM[0-9], LPT[0-9] -- prepend with "_"
-		zmv $theHome/$i'(**/)(COM|LPT)([0-9])(#q'$q')(#qN)' $theHome/$i'$1_$2$3' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/)(COM|LPT)([0-9])(#q'$q')(#qN)' $theHome/$i'$1_$2$3' >> $theRoot$theOutput
 	
 		# _vti_ -- remove "_"
-		zmv $theHome/$i'(**/)_(vti)_(#q'$q')(#qN)' $theHome/$i'$1$2' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/)_(vti)_(#q'$q')(#qN)' $theHome/$i'$1$2' >> $theRoot$theOutput
 		
 		# .lock -- replace . with "_"
-		zmv $theHome/$i'(**/).(lock)(#q'$q')(#qN)' $theHome/$i'$1_$2' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/).(lock)(#q'$q')(#qN)' $theHome/$i'$1_$2' >> $theRoot$theOutput
 	
 		# desktop.ini -- replace . with "_"
-		zmv $theHome/$i'(**/)(desktop).(ini)(#q'$q')(#qN)' $theHome/$i'$1$2_$3' >> $theRoot$theOutput
+		zmv -n $theHome/$i'(**/)(desktop).(ini)(#q'$q')(#qN)' $theHome/$i'$1$2_$3' >> $theRoot$theOutput
 		
 		# files begining ~$ -- replace ~$ with "__"
-		zmv $theHome/$i'(**/)\~$(*)(#q.)(#qN)' $theHome/$i'$1__$2' >> $theRoot$theOutput	
+		zmv -n $theHome/$i'(**/)\~$(*)(#q.)(#qN)' $theHome/$i'$1__$2' >> $theRoot$theOutput	
 	done
 
 done
@@ -78,7 +79,7 @@ do
  	theTime=$(date -r "$f" +%H%M.%S)
  	echo $theTime
  	# stat "$f"
- 	touch -t 19800101$theTime "$f"
+ 	# touch -t 19800101$theTime "$f"
  	# stat "$f" 	
 done
 
