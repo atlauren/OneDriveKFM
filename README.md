@@ -3,7 +3,7 @@ Replace [OneDrive-Forbidden](https://support.microsoft.com/en-us/office/restrict
 
 These shell scripts look for file and folder names known to be forbidden by OneDrive; characters forbidden by OneDrive are replaced with understores (`_`). 
 
-Only the Desktop and Documents folders are targeted.  The scripts are written in `zsh`, taking advantage of `zsh`'s file globbing and the `zmv` function. In addition, files with dates predating 1980-01-01 are updated to 1980-01-01; this change accomodates restrictions in the FAT file system, and a data presentation issue in Windows Explorer.
+Only the Desktop and Documents folders are targeted.  The scripts are written in `zsh`, taking advantage of `zsh`'s file [globbing](https://en.wikipedia.org/wiki/Glob_(programming)) and the `zmv` function. In addition, files with dates predating 1980-01-01 are updated to 1980-01-01; this change accomodates restrictions in the FAT file system and a data presentation issue in Windows Explorer.
 
 | Script | Description |
 |---|---|
