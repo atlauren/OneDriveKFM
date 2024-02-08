@@ -3,6 +3,7 @@
 
 # OneDrive issues with filenames
 # https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa
+# zsh
 # https://zsh.sourceforge.io/Doc/Release/zsh_toc.html
 # https://zsh.sourceforge.io/Doc/Release/Expansion.html
 # https://github.com/zsh-users/zsh/blob/master/Functions/Misc/zmv
@@ -60,11 +61,11 @@ done
 
 awk -f /tmp/zmv2csv.awk $theRoot$theOutput > $theRoot$theCSV
 
-zmv $theRoot'(OneDrive-FileDates).(txt)(#qN)' $theRoot'$1_$(stat -f %Sc -t %F_%H-%M-%S $f).$2'
-
 # File Dates predating 1980-01-01
 # https://en.wikipedia.org/wiki/File_Allocation_Table
 # https://superuser.com/a/797493
+
+zmv $theRoot'(OneDrive-FileDates).(txt)(#qN)' $theRoot'$1_$(stat -f %Sc -t %F_%H-%M-%S $f).$2'
 
 theFiles=("${(@f)$(find $theHome/(Desktop|Documents) ! -newermt "1980-01-01")}") 
 # https://unix.stackexchange.com/a/29748/599230
