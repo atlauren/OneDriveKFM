@@ -1,7 +1,5 @@
 #!/bin/zsh
 # https://github.com/atlauren/OneDriveKFM/
-# atlauren@uci.edu
-
 
 # OneDrive issues with filenames
 # https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa
@@ -20,8 +18,6 @@ autoload zmv
 
 zmv $theRoot'(OneDrive-Renamed).(txt|csv)(#qN)' $theRoot'$1_$(stat -f %Sc -t %F_%H-%M-%S $f).$2'
 
-#rm $theRoot$theOutput
-echo $theRoot$theOutput
 touch $theRoot$theOutput
 
 for q in / . ; do
