@@ -6,9 +6,10 @@ These shell scripts look for file and folder names known to be forbidden by OneD
 In addition, files with dates predating 1980-01-01 are updated to 1980-01-01.  This change accomodates restrictions in the FAT file system, and a data presentation issue in Windows Explorer.
 
 Output files are written to ~/Desktop:
-|OneDrive-Renamed.txt|Direct output from `zmv`.|
-|OneDrive-Renamed.csv|An `awk`-processed CSV version of the same file.|
-|OneDrive-FileDates.txt|A list of files whose file dates were changed.|
+||OneDrive-Renamed.txt|Direct output from `zmv`.||
+|--|
+||OneDrive-Renamed.csv|An `awk`-processed CSV version of the same file.||
+||OneDrive-FileDates.txt|A list of files whose file dates were changed.||
 
 The scripts are written in `zsh`, taking advantage of `zsh`'s file globbing and the `zmv` function.
 
