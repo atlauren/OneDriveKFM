@@ -1,5 +1,5 @@
 # OneDriveKFM
-Replace [OneDrive-Forbidden](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa) Characters
+## Replace [OneDrive-Forbidden](https://support.microsoft.com/en-us/office/restrictions-and-limitations-in-onedrive-and-sharepoint-64883a5d-228e-48f5-b3d2-eb39e07630fa) Characters
 
 These shell scripts look for file and folder names known to be forbidden by OneDrive; characters forbidden by OneDrive are replaced with underscores (`_`). 
 
@@ -19,6 +19,14 @@ Output files are written to ~/Desktop:
 | OneDrive-FileDates.txt | A list of files whose file dates were changed. |
 
 The script assumes it is executed by the user account owning the files.
+
+## ToDo
+* Unify into one .sh script.
+  - `-safe` and `-commit` options, required.
+* Fix directory references
+* Add .awk file to docs list
+* Document needing both .sh and .awk files in the same directory.
+ 
 
 Released under MIT license to benefit the Mac Admin community.
 
