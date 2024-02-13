@@ -10,11 +10,11 @@ if (!/\x27$/)
 if (/^mv -- \//)
 	{sub(/\//,"\047\/")
 	}
-# add ' to start of " /Users"
+# add ' before " " of " /Users"
 if (/ \/Users/ && !/\x27 \/Users/)
 	{ sub(/ \/Users/,"\047 \/Users")
 	}
-# add ' to start of " /Users"
+# add 'before "/" of " /Users"
 if (/ \/Users/)
 	{ sub(/ \/Users/," \047\/Users")
 	}
