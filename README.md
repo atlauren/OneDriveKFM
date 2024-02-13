@@ -7,7 +7,7 @@ Only the Desktop and Documents folders are targeted.  The scripts are written in
 
 | Script | Description |
 |---|---|
-| ~~onedrive-forbidden-characters-test.sh | Runs `zmv -n` "what if" mode. Does not `touch` files.~~ |
+| ~~onedrive-forbidden-characters-test.sh~~ | ~~Runs `zmv -n` "what if" mode. Does not `touch` files.~~ |
 | onedrive-forbidden-characters.sh | `--dry-run` makes no changes. `--commit` writes changes to files|
 | zmv2csv.awk | Convert zmv output to CSV. |
 
@@ -22,8 +22,8 @@ Output files are written to ~/Desktop:
 The script assumes it is executed by the user account owning the files.
 
 ## ToDo
-* ~~Unify into one .sh script.
-  - `-safe` and `-commit` options, required.~~
+* ~~Unify into one .sh script.~~
+  - ~~`-safe` and `-commit` options, required.~~
 * Fix directory references
 * ~~Add .awk file to docs list~~
 * Document needing both .sh and .awk files in the same directory.
